@@ -9,4 +9,9 @@
 
     <string name="sunny">Солнечно</string>
     <string name="rain">Дождь</string>
+    <string name="enter">Выбрать</string>
+    <string name="windSpeed">Скорость ветра</string>
+    <string name="pressure">Давление</string>
+
+
 </resources>
