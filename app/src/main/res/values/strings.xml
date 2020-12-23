@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">WeatherForecast</string>
+
+    <string name="ekaterinburg">Екатеринбург</string>
+    <string name="pogoda">Облачно большую часть дня</string>
+
+    <string name="today">Сегодня</string>
+    <string name="tomorrow">Завтра</string>
+
+    <string name="sunny">Солнечно</string>
+    <string name="rain">Дождь</string>
+</resources>

@@ -1,0 +1,732 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/ekaterinburg"
+        tools:ignore="MissingConstraints"></TextView>
+
+    <LinearLayout
+        android:id="@+id/top_layout"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_marginTop="4dp"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        tools:layout_editor_absoluteX="0dp">
+
+
+        <!--текущая температура-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="-19"
+                    android:textSize="50dp"
+                    tools:ignore="MissingConstraints"></TextView>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="@string/pogoda"
+                    android:textSize="25dp"
+                    tools:ignore="MissingConstraints"></TextView>
+
+            </LinearLayout>
+
+        </LinearLayout>
+        <!--погода по часам в течении дня-->
+        <LinearLayout
+            android:id="@+id/pog_tek_vr"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:orientation="horizontal">
+
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:background="@color/ccbebe"
+                        android:padding="5dp">
+                        <TextView
+                            android:layout_weight="1"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:text="01:00"
+                            android:textSize="25dp"
+                            tools:ignore="MissingConstraints"></TextView>
+                        <TextView
+                            android:layout_weight="1"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:text="-20"
+                            android:textSize="25dp"
+                            tools:ignore="MissingConstraints"></TextView>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:background="@color/ccbebe"
+                        android:padding="5dp">
+                        <TextView
+                            android:layout_weight="1"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:text="02:00"
+                            android:textSize="25dp"
+                            tools:ignore="MissingConstraints"></TextView>
+                        <TextView
+                            android:layout_weight="1"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:text="-20"
+                            android:textSize="25dp"
+                            tools:ignore="MissingConstraints"></TextView>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:background="@color/ccbebe"
+                        android:padding="5dp">
+                        <TextView
+                            android:layout_weight="1"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:text="03:00"
+                            android:textSize="25dp"
+                            tools:ignore="MissingConstraints"></TextView>
+                        <TextView
+                            android:layout_weight="1"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:text="-20"
+                            android:textSize="25dp"
+                            tools:ignore="MissingConstraints"></TextView>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:background="@color/ccbebe"
+                        android:padding="5dp">
+                        <TextView
+                            android:layout_weight="1"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:text="04:00"
+                            android:textSize="25dp"
+                            tools:ignore="MissingConstraints"></TextView>
+                        <TextView
+                            android:layout_weight="1"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:text="-20"
+                            android:textSize="25dp"
+                            tools:ignore="MissingConstraints"></TextView>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:background="@color/ccbebe"
+                        android:padding="5dp">
+                        <TextView
+                            android:layout_weight="1"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:text="05:00"
+                            android:textSize="25dp"
+                            tools:ignore="MissingConstraints"></TextView>
+                        <TextView
+                            android:layout_weight="1"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:text="-20"
+                            android:textSize="25dp"
+                            tools:ignore="MissingConstraints"></TextView>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:background="@color/ccbebe"
+                        android:padding="5dp">
+                        <TextView
+                            android:layout_weight="1"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:text="06:00"
+                            android:textSize="25dp"
+                            tools:ignore="MissingConstraints"></TextView>
+                        <TextView
+                            android:layout_weight="1"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:text="-20"
+                            android:textSize="25dp"
+                            tools:ignore="MissingConstraints"></TextView>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:background="@color/ccbebe"
+                        android:padding="5dp">
+                        <TextView
+                            android:layout_weight="1"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:text="07:00"
+                            android:textSize="25dp"
+                            tools:ignore="MissingConstraints"></TextView>
+                        <TextView
+                            android:layout_weight="1"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:text="-20"
+                            android:textSize="25dp"
+                            tools:ignore="MissingConstraints"></TextView>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:background="@color/ccbebe"
+                        android:padding="5dp">
+                        <TextView
+                            android:layout_weight="1"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:text="08:00"
+                            android:textSize="25dp"
+                            tools:ignore="MissingConstraints"></TextView>
+                        <TextView
+                            android:layout_weight="1"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:text="-20"
+                            android:textSize="25dp"
+                            tools:ignore="MissingConstraints"></TextView>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:background="@color/ccbebe"
+                        android:padding="5dp">
+                        <TextView
+                            android:layout_weight="1"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:text="09:00"
+                            android:textSize="25dp"
+                            tools:ignore="MissingConstraints"></TextView>
+                        <TextView
+                            android:layout_weight="1"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:text="-20"
+                            android:textSize="25dp"
+                            tools:ignore="MissingConstraints"></TextView>
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+
+            </HorizontalScrollView>
+
+        </LinearLayout>
+
+
+
+    </LinearLayout>
+
+    <!--погода на 10 дней-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="230dp"
+        app:layout_constraintTop_toBottomOf="@+id/top_layout"
+        >
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:orientation="vertical"
+                app:layout_constraintTop_toBottomOf="@+id/pog_tek_vr"
+                tools:layout_editor_absoluteX="5dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        android:gravity="center"
+                        android:layout_height="match_parent"
+                        android:text="@string/today">
+
+                    </TextView>
+
+                    <TextView
+                        android:layout_weight="2"
+                        android:layout_width="0dp"
+                        android:gravity="center"
+                        android:layout_height="match_parent"
+                        android:text="@string/sunny">
+
+                    </TextView>
+                    <TextView
+                        android:layout_weight="2"
+                        android:layout_width="0dp"
+                        android:gravity="center"
+                        android:layout_height="match_parent"
+                        android:text="-19">
+
+                    </TextView>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        android:gravity="center"
+                        android:layout_height="match_parent"
+                        android:text="@string/today">
+
+                    </TextView>
+
+                    <TextView
+                        android:layout_weight="2"
+                        android:layout_width="0dp"
+                        android:gravity="center"
+                        android:layout_height="match_parent"
+                        android:text="@string/sunny">
+
+                    </TextView>
+                    <TextView
+                        android:layout_weight="2"
+                        android:layout_width="0dp"
+                        android:gravity="center"
+                        android:layout_height="match_parent"
+                        android:text="-19">
+
+                    </TextView>
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        android:gravity="center"
+                        android:layout_height="match_parent"
+                        android:text="@string/today">
+
+                    </TextView>
+
+                    <TextView
+                        android:layout_weight="2"
+                        android:layout_width="0dp"
+                        android:gravity="center"
+                        android:layout_height="match_parent"
+                        android:text="@string/sunny">
+
+                    </TextView>
+                    <TextView
+                        android:layout_weight="2"
+                        android:layout_width="0dp"
+                        android:gravity="center"
+                        android:layout_height="match_parent"
+                        android:text="-19">
+
+                    </TextView>
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        android:gravity="center"
+                        android:layout_height="match_parent"
+                        android:text="@string/today">
+
+                    </TextView>
+
+                    <TextView
+                        android:layout_weight="2"
+                        android:layout_width="0dp"
+                        android:gravity="center"
+                        android:layout_height="match_parent"
+                        android:text="@string/sunny">
+
+                    </TextView>
+                    <TextView
+                        android:layout_weight="2"
+                        android:layout_width="0dp"
+                        android:gravity="center"
+                        android:layout_height="match_parent"
+                        android:text="-19">
+
+                    </TextView>
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        android:gravity="center"
+                        android:layout_height="match_parent"
+                        android:text="@string/today">
+
+                    </TextView>
+
+                    <TextView
+                        android:layout_weight="2"
+                        android:layout_width="0dp"
+                        android:gravity="center"
+                        android:layout_height="match_parent"
+                        android:text="@string/sunny">
+
+                    </TextView>
+                    <TextView
+                        android:layout_weight="2"
+                        android:layout_width="0dp"
+                        android:gravity="center"
+                        android:layout_height="match_parent"
+                        android:text="-19">
+
+                    </TextView>
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        android:gravity="center"
+                        android:layout_height="match_parent"
+                        android:text="@string/today">
+
+                    </TextView>
+
+                    <TextView
+                        android:layout_weight="2"
+                        android:layout_width="0dp"
+                        android:gravity="center"
+                        android:layout_height="match_parent"
+                        android:text="@string/sunny">
+
+                    </TextView>
+                    <TextView
+                        android:layout_weight="2"
+                        android:layout_width="0dp"
+                        android:gravity="center"
+                        android:layout_height="match_parent"
+                        android:text="-19">
+
+                    </TextView>
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        android:gravity="center"
+                        android:layout_height="match_parent"
+                        android:text="@string/today">
+
+                    </TextView>
+
+                    <TextView
+                        android:layout_weight="2"
+                        android:layout_width="0dp"
+                        android:gravity="center"
+                        android:layout_height="match_parent"
+                        android:text="@string/sunny">
+
+                    </TextView>
+                    <TextView
+                        android:layout_weight="2"
+                        android:layout_width="0dp"
+                        android:gravity="center"
+                        android:layout_height="match_parent"
+                        android:text="-19">
+
+                    </TextView>
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        android:gravity="center"
+                        android:layout_height="match_parent"
+                        android:text="@string/today">
+
+                    </TextView>
+
+                    <TextView
+                        android:layout_weight="2"
+                        android:layout_width="0dp"
+                        android:gravity="center"
+                        android:layout_height="match_parent"
+                        android:text="@string/sunny">
+
+                    </TextView>
+                    <TextView
+                        android:layout_weight="2"
+                        android:layout_width="0dp"
+                        android:gravity="center"
+                        android:layout_height="match_parent"
+                        android:text="-19">
+
+                    </TextView>
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        android:gravity="center"
+                        android:layout_height="match_parent"
+                        android:text="@string/today">
+
+                    </TextView>
+
+                    <TextView
+                        android:layout_weight="2"
+                        android:layout_width="0dp"
+                        android:gravity="center"
+                        android:layout_height="match_parent"
+                        android:text="@string/sunny">
+
+                    </TextView>
+                    <TextView
+                        android:layout_weight="2"
+                        android:layout_width="0dp"
+                        android:gravity="center"
+                        android:layout_height="match_parent"
+                        android:text="-19">
+
+                    </TextView>
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        android:gravity="center"
+                        android:layout_height="match_parent"
+                        android:text="@string/today">
+
+                    </TextView>
+
+                    <TextView
+                        android:layout_weight="2"
+                        android:layout_width="0dp"
+                        android:gravity="center"
+                        android:layout_height="match_parent"
+                        android:text="@string/sunny">
+
+                    </TextView>
+                    <TextView
+                        android:layout_weight="2"
+                        android:layout_width="0dp"
+                        android:gravity="center"
+                        android:layout_height="match_parent"
+                        android:text="-19">
+
+                    </TextView>
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        android:gravity="center"
+                        android:layout_height="match_parent"
+                        android:text="@string/today">
+
+                    </TextView>
+
+                    <TextView
+                        android:layout_weight="2"
+                        android:layout_width="0dp"
+                        android:gravity="center"
+                        android:layout_height="match_parent"
+                        android:text="@string/sunny">
+
+                    </TextView>
+                    <TextView
+                        android:layout_weight="2"
+                        android:layout_width="0dp"
+                        android:gravity="center"
+                        android:layout_height="match_parent"
+                        android:text="-19">
+
+                    </TextView>
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        android:gravity="center"
+                        android:layout_height="match_parent"
+                        android:text="@string/today">
+
+                    </TextView>
+
+                    <TextView
+                        android:layout_weight="2"
+                        android:layout_width="0dp"
+                        android:gravity="center"
+                        android:layout_height="match_parent"
+                        android:text="@string/sunny">
+
+                    </TextView>
+                    <TextView
+                        android:layout_weight="2"
+                        android:layout_width="0dp"
+                        android:gravity="center"
+                        android:layout_height="match_parent"
+                        android:text="-19">
+
+                    </TextView>
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        android:gravity="center"
+                        android:layout_height="match_parent"
+                        android:text="@string/today">
+
+                    </TextView>
+
+                    <TextView
+                        android:layout_weight="2"
+                        android:layout_width="0dp"
+                        android:gravity="center"
+                        android:layout_height="match_parent"
+                        android:text="@string/sunny">
+
+                    </TextView>
+                    <TextView
+                        android:layout_weight="2"
+                        android:layout_width="0dp"
+                        android:gravity="center"
+                        android:layout_height="match_parent"
+                        android:text="-19">
+
+                    </TextView>
+
+                </LinearLayout>
+
+
+
+            </LinearLayout>
+
+        </ScrollView>
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
