@@ -3,13 +3,23 @@ package com.example.firstandroidproject;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
+import android.os.Environment;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.EditText;
 import android.widget.Toast;
 
+import java.io.File;
 import java.util.ArrayList;
+
+import static com.example.firstandroidproject.SecondActivity.KEY_CITY;
+import static com.example.firstandroidproject.SecondActivity.KEY_PRESSURE;
+import static com.example.firstandroidproject.SecondActivity.KEY_WIND_SPEED;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -17,6 +27,8 @@ public class MainActivity extends AppCompatActivity {
     ArrayList<String> listCity = new ArrayList<String>();
     CheckBox pressureCheckbox;
     CheckBox windCheckbox;
+    Button btnEnterCity;
+    EditText editSearch;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,11 +46,44 @@ public class MainActivity extends AppCompatActivity {
 
         setInitialCity();
         setInitRecyclerView();
+        clickListener();
     }
 
     private  void initView(){
         windCheckbox = findViewById(R.id.checkbox_wind_speed);
         pressureCheckbox = findViewById(R.id.checkbox_pressure);
+        btnEnterCity = findViewById(R.id.btnEnterCity);
+        editSearch = findViewById(R.id.edit_search);
+    }
+
+    private void clickListener(){
+        btnEnterCity.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+
+            }
+        });
+    }
+
+    private void setInitRecyclerView(){
+        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.list);
+
+        final CityAdapter.OnStateClickListener stateClickListener = new CityAdapter.OnStateClickListener() {
+            @Override
+            public void onStateClick(String cities, int position) {
+                Intent intent = new Intent(MainActivity.this, SecondActivity.class);
+                intent.putExtra(KEY_CITY, cities);
+                intent.putExtra(KEY_WIND_SPEED, windCheckbox.isChecked());
+                intent.putExtra(KEY_PRESSURE, pressureCheckbox.isChecked());
+                startActivity(intent);
+            }
+        };
+
+        // создаем адаптер
+        CityAdapter adapter = new CityAdapter(this, listCity, stateClickListener);
+        // устанавливаем для списка адаптер
+        recyclerView.setAdapter(adapter);
     }
 
     @Override
@@ -52,7 +97,7 @@ public class MainActivity extends AppCompatActivity {
         Log.d(TAG,"onSaveInstanceState");
     }
 
-    @Override
+   /* @Override
     public void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
         Toast.makeText(this, "onConfigurationChanged", Toast.LENGTH_SHORT).show();
@@ -108,14 +153,8 @@ public class MainActivity extends AppCompatActivity {
         Toast.makeText(getApplicationContext(), "onDestroy", Toast.LENGTH_SHORT).show();
         Log.d(TAG," onDestroy");
     }
+*/
 
-    private void setInitRecyclerView(){
-        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.list);
-        // создаем адаптер
-        CityAdapter adapter = new CityAdapter(this, listCity);
-        // устанавливаем для списка адаптер
-        recyclerView.setAdapter(adapter);
-    }
 
     private void setInitialCity(){
         listCity.add("Москва");

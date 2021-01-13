@@ -14,11 +14,19 @@ public class CityAdapter extends RecyclerView.Adapter<CityAdapter.ViewHolder>{
 
     private final LayoutInflater inflater;
     private final List<String> cities;
+    private final OnStateClickListener onClickListener;
 
-    CityAdapter(Context context, List<String> cities) {
+
+    CityAdapter(Context context, List<String> cities, OnStateClickListener onClickListener) {
         this.cities = cities;
         this.inflater = LayoutInflater.from(context);
+        this.onClickListener = onClickListener;
     }
+
+    public interface OnStateClickListener{
+        void onStateClick(String cities, int position);
+    }
+
     @Override
     public CityAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 
@@ -27,9 +35,17 @@ public class CityAdapter extends RecyclerView.Adapter<CityAdapter.ViewHolder>{
     }
 
     @Override
-    public void onBindViewHolder(CityAdapter.ViewHolder holder, int position) {
-        String city = cities.get(position);
+    public void onBindViewHolder(CityAdapter.ViewHolder holder, final int position) {
+        final String city = cities.get(position);
         holder.cityName.setText(city);
+
+        holder.itemView.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v)
+            {
+                onClickListener.onStateClick(city, position);
+            }
+        });
     }
 
     @Override

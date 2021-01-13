@@ -8,7 +8,7 @@
 
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/textViewCity"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/ekaterinburg"
@@ -20,7 +20,7 @@
         android:layout_height="200dp"
         android:layout_marginTop="4dp"
         android:orientation="vertical"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintTop_toBottomOf="@+id/textViewCity"
         tools:layout_editor_absoluteX="0dp">
 
 
