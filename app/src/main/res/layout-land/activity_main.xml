@@ -12,22 +12,12 @@
         android:id="@+id/textViewCity"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:textSize="15sp"
         android:text="@string/ekaterinburg"
+       android:background="@color/colorAccent"
         tools:ignore="MissingConstraints"></TextView>
 
-    <!--погода по часам в течении дня-->
-    <FrameLayout
-        android:id="@+id/framePogTekVr"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/top_layout">
-        <fragment
-            android:id="@+id/fragmentPogTekVr"
-            android:name="com.example.firstandroidproject.fragments.TemperatureDayFragment"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            />
-    </FrameLayout>
 
     <!--погода на 10 дней-->
     <FrameLayout
@@ -35,7 +25,7 @@
         android:layout_width="match_parent"
         android:paddingTop="10dp"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/framePogTekVr">
+        app:layout_constraintTop_toBottomOf="@+id/textViewCity">
         <fragment
             android:id="@+id/fragmentPogTekVr2"
             android:name="com.example.firstandroidproject.fragments.TemperatureNextDaysFragment"
@@ -43,5 +33,8 @@
             android:layout_height="wrap_content"
             />
     </FrameLayout>
+
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

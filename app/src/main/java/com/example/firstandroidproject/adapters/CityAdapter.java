@@ -1,4 +1,4 @@
-package com.example.firstandroidproject;
+package com.example.firstandroidproject.adapters;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -7,6 +7,8 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.firstandroidproject.R;
 
 import java.util.List;
 
@@ -17,7 +19,7 @@ public class CityAdapter extends RecyclerView.Adapter<CityAdapter.ViewHolder>{
     private final OnStateClickListener onClickListener;
 
 
-    CityAdapter(Context context, List<String> cities, OnStateClickListener onClickListener) {
+    public CityAdapter(Context context, List<String> cities, OnStateClickListener onClickListener) {
         this.cities = cities;
         this.inflater = LayoutInflater.from(context);
         this.onClickListener = onClickListener;
