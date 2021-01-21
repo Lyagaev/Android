@@ -1,10 +1,13 @@
 package com.example.firstandroidproject.fragments;
 
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.DividerItemDecoration;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
@@ -16,6 +19,8 @@ import com.example.firstandroidproject.adapters.TemperatureDayAdapter;
 import com.example.firstandroidproject.adapters.TemperatureNextDaysAdapter;
 
 import java.util.ArrayList;
+
+import static androidx.core.content.ContextCompat.getDrawable;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -44,9 +49,21 @@ public class TemperatureNextDaysFragment extends Fragment {
     private void setInitRecyclerView(View view){
         // создаем адаптер
         TemperatureNextDaysAdapter adapter = new TemperatureNextDaysAdapter(getContext(), temperatureNextDay);
+
+        // Будем работать со встроенным менеджером
+        LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
+        recyclerViewNextDayTemperature.setLayoutManager(layoutManager);
+
+        // Добавим разделитель карточек
+        DividerItemDecoration itemDecoration = new DividerItemDecoration(getContext(), LinearLayoutManager.VERTICAL);
+        itemDecoration.setDrawable(getDrawable(getContext(), R.drawable.separator));
+        recyclerViewNextDayTemperature.addItemDecoration(itemDecoration);
+
         // устанавливаем для списка адаптер
         recyclerViewNextDayTemperature.setAdapter(adapter);
     }
+
+
 
 /*    // activity создана, можно к ней обращаться. Выполним начальные действия
     @Override
