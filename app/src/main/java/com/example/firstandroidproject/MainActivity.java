@@ -10,11 +10,15 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.firstandroidproject.adapters.CityAdapter;
+import com.google.android.material.textfield.TextInputEditText;
+import com.google.android.material.snackbar.Snackbar;
 
 import java.util.ArrayList;
+import java.util.regex.Pattern;
 
 import static com.example.firstandroidproject.SecondActivity.KEY_CITY;
 import static com.example.firstandroidproject.SecondActivity.KEY_PRESSURE;
@@ -27,7 +31,11 @@ public class MainActivity extends AppCompatActivity {
     CheckBox pressureCheckbox;
     CheckBox windCheckbox;
     Button btnEnterCity;
-    EditText editSearch;
+    TextInputEditText editSearch;
+
+    // Регулярные выражения позволяют проверить на соответствие шаблону
+    // Это город. Все буквы
+    Pattern checkCity = Pattern.compile("^[А-Я][а-я]{2,}$");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,10 +51,46 @@ public class MainActivity extends AppCompatActivity {
         if (savedInstanceState != null && savedInstanceState.containsKey("pressureCheckBox"))
             pressureCheckbox.setChecked(savedInstanceState.getBoolean("pressureCheckBox"));
 
+        // Чтобы не докучать пользователю при вводе каждой буквы, сделаем проверку при потере фокуса
+        editSearch.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            // Как только фокус потерян, сразу проверяем на валидность данные
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (hasFocus) return;
+                TextView tv = (TextView) v;
+                // Это сама валидация, она вынесена в отдельный метод, чтобы не дублировать код
+                // см вызов ниже
+                validate(tv, checkCity, "Это не имя!");
+            }
+        });
+
+
         setInitialCity();
         setInitRecyclerView();
         clickListener();
     }
+
+    // Валидация
+    private void validate(TextView tv, Pattern check, String message){
+        String value = tv.getText().toString();
+        if (check.matcher(value).matches()){    // Проверим на основе регулярных выражений
+            hideError(tv);
+        }
+        else{
+            showError(tv, message);
+        }
+    }
+
+    // Показать ошибку
+    private void showError(TextView view, String message) {
+        view.setError(message);
+    }
+
+    // спрятать ошибку
+    private void hideError(TextView view) {
+        view.setError(null);
+    }
+
 
     private  void initView(){
         windCheckbox = findViewById(R.id.checkbox_wind_speed);
@@ -66,17 +110,30 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void setInitRecyclerView(){
-        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.list);
+        final RecyclerView recyclerView = (RecyclerView) findViewById(R.id.list);
 
         final CityAdapter.OnStateClickListener stateClickListener = new CityAdapter.OnStateClickListener() {
             @Override
-            public void onStateClick(String cities, int position) {
-                Intent intent = new Intent(MainActivity.this, SecondActivity.class);
+            public void onStateClick(final String cities, int position) {
+                Snackbar.make(recyclerView, "Вы выбрали город "+cities, Snackbar.LENGTH_LONG)
+                        .setAction("Подтвердить", new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                Intent intent = new Intent(MainActivity.this, SecondActivity.class);
+                                intent.putExtra(KEY_CITY, cities);
+                                intent.putExtra(KEY_WIND_SPEED, windCheckbox.isChecked());
+                                intent.putExtra(KEY_PRESSURE, pressureCheckbox.isChecked());
+                                startActivity(intent);
+                            }
+                        }).show();
+            }
+
+        /*Intent intent = new Intent(MainActivity.this, SecondActivity.class);
                 intent.putExtra(KEY_CITY, cities);
                 intent.putExtra(KEY_WIND_SPEED, windCheckbox.isChecked());
                 intent.putExtra(KEY_PRESSURE, pressureCheckbox.isChecked());
-                startActivity(intent);
-            }
+                startActivity(intent);*/
+
         };
 
         // создаем адаптер
