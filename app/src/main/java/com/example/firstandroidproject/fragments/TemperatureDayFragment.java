@@ -1,6 +1,5 @@
 package com.example.firstandroidproject.fragments;
 
-import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -12,18 +11,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.firstandroidproject.MainActivity;
 import com.example.firstandroidproject.R;
-import com.example.firstandroidproject.SecondActivity;
-import com.example.firstandroidproject.adapters.CityAdapter;
 import com.example.firstandroidproject.adapters.TemperatureDayAdapter;
 
 import java.util.ArrayList;
-import java.util.List;
-
-import static com.example.firstandroidproject.SecondActivity.KEY_CITY;
-import static com.example.firstandroidproject.SecondActivity.KEY_PRESSURE;
-import static com.example.firstandroidproject.SecondActivity.KEY_WIND_SPEED;
 
 /**
  * A simple {@link Fragment} subclass.
